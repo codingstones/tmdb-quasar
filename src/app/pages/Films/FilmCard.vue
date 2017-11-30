@@ -16,7 +16,7 @@
     </q-card-main>
     <q-collapsible label="Description">
       <div>
-        {{ props.film.description }}
+        {{ props.film.overview }}
       </div>
     </q-collapsible>
   </q-card>
