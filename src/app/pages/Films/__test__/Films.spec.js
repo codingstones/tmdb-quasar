@@ -11,7 +11,7 @@ describe('Films', () => {
     store.state.films = fakeFilms
     wrapper = Wrap(Films)
       .withStore(store)
-      .withProps({ isLoading: false, onClick: jest.fn })
+      .withProps({ isLoading: false, onClick: jest.fn, films: fakeFilms })
       .mount()
     page = new FilmsPage(wrapper)
   })

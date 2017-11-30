@@ -1,5 +1,5 @@
 <template>
-  <q-infinite-scroll v-if="films.length > 0" :handler="loadMore" class="row justify-center">
+  <q-infinite-scroll v-show="films.length > 0" :handler="loadMore" class="row justify-center">
     <q-card-title>Films</q-card-title>
     <FilmCard v-for="film in films" :key="film.id" :film ="film" :onClick="goTo"/>
     <div slot="message" class="row justify-center" style="margin-bottom: 50px;">
@@ -8,25 +8,19 @@
     <BackToTopButton/>
   </q-infinite-scroll>
 </template>
-
 <script>
-  import { mapState, mapActions } from 'vuex'
   let pageNumber = 1
   export default {
+    props: ['retrievePages', 'films'],
     methods: {
-      ...mapActions(['retrieve_popular_films']),
       async loadMore(index, done) {
         pageNumber++
-        console.log('Cargando load Next page', pageNumber)
-        await this.retrieve_popular_films({ pageNumber })
+        await this.retrievePages({ pageNumber })
         done()
       },
       goTo(film) {
         this.jotaRouter.navigateToFilm(film.id)
       }
-    },
-    computed: {
-      ...mapState(['isLoading', 'films'])
     }
   }
 </script>

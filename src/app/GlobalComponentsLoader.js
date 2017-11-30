@@ -39,12 +39,14 @@ import SideBar from '@/app/shared-components/SideBar.vue'
 import Toolbar from '@/app/shared-components/Toolbar.vue'
 import Tabs from '@/app/shared-components/Tabs.vue'
 import FilmCard from '@/app/pages/Films/FilmCard.vue'
+import Films from '@/app/pages/Films/Films.vue'
 
 export function registerGlobalComponents() {
   Vue.config.productionTip = false
 
   Vue.component('LoadSpinner', LoadSpinner)
   Vue.component('FilmCard', FilmCard)
+  Vue.component('Films', Films)
   Vue.component('QList', QList)
   Vue.component('QListHeader', QListHeader)
   Vue.component('QItem', QItem)

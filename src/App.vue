@@ -15,21 +15,13 @@
 
 <script>
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
-import { mapActions } from 'vuex'
-import { Loading } from 'quasar-framework'
 
 registerGlobalComponents()
 export default {
   methods: {
-    ...mapActions(['retrieve_popular_films']),
     clickDrawer() {
       this.$refs.layout.toggleLeft()
     }
-  },
-  async mounted() {
-    Loading.show({message: 'Loading films...'})
-    await this.retrieve_popular_films({ pageNumber: 1 })
-    Loading.hide()
   }
 }
 </script>

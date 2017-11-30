@@ -7,7 +7,7 @@ function load (component) {
   // '@' is aliased to src/
   return () => import(`@/app/pages/${component}.vue`)
 }
-import Films from '@/app/pages/Films/Films.vue'
+import PopularFilms from '@/app/pages/PopularFilms/PopularFilms.vue'
 import FilmDetail from '@/app/pages/FilmDetail/FilmDetail.vue'
 
 export const POPULAR_FILMS_PATH = '/popular_films'
@@ -17,8 +17,8 @@ const router = new VueRouter({
   routes:
   [
     { path: '/', redirect: POPULAR_FILMS_PATH },
-    { path: POPULAR_FILMS_PATH, component: Films },
-    { path: POPULAR_TV_SHOWS_PATH, component: Films },
+    { path: POPULAR_FILMS_PATH, component: PopularFilms },
+    { path: POPULAR_TV_SHOWS_PATH, component: PopularFilms },
     { path: '/film/:id', component: FilmDetail, title: 'film' },
     { path: '*', component: load('Error404') }
   ],
