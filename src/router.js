@@ -8,7 +8,7 @@ function load (component) {
   return () => import(`@/app/pages/${component}.vue`)
 }
 import PopularFilms from '@/app/pages/PopularFilms/PopularFilms.vue'
-import PopularTvShows from '@/app/pages/PopularFilms/PopularTvShows.vue'
+import PopularTvShows from '@/app/pages/PopularTvShows/PopularTvShows.vue'
 import FilmDetail from '@/app/pages/FilmDetail/FilmDetail.vue'
 
 export const POPULAR_FILMS_PATH = '/popular_films'
