@@ -1,0 +1,247 @@
+Index: src/app/services/__tests__/tmdb-commands.integration.spec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/__tests__/tmdb-commands.integration.spec.js	(date 1510648957000)
++++ src/app/services/__tests__/tmdb-commands.integration.spec.js	(date 1510648957000)
+@@ -0,0 +1,17 @@
++import { retrieveATmdbFilm, searchTmdbFilm } from '../tmdb-commands'
++
++describe('Tmdb client', () => {
++
++  it('finds searched film', async () => {
++    const result = await searchTmdbFilm('Princess Mononoke')
++    expect(result.id).toBe(128)
++    expect(result.backdrop_path).toContain('image.tmdb.org')
++    expect(result.backdrop_path).toContain('.jpg')
++    expect(result.poster_path).toContain('.jpg')
++  })
++
++  it('Gets a film by url', async () => {
++    const film = await retrieveATmdbFilm(128)
++    expect(typeof film.title).toBe('string')
++  })
++})
+Index: src/app/services/__tests__/ghibli-commands.integration.spec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/__tests__/ghibli-commands.integration.spec.js	(date 1510652143000)
++++ src/app/services/__tests__/ghibli-commands.integration.spec.js	(date 1510652143000)
+@@ -0,0 +1,20 @@
++
++describe('GhibliCommands', () => {
++
++  it('Gets all films', async () => {
++    const films = await retrieveAllFilms()
++    expect(films.length).toBeGreaterThan(19)
++    films.map((film) => expect(typeof film.title).toBe('string'))
++  })
++
++  it('Gets a film', async () => {
++    const film = await buildGhibliCommand().retrieveAFilm('578ae244-7750-4d9f-867b-f3cd3d6fecf4')
++    expect(typeof film.title).toBe('string')
++  })
++
++  it('Gets a film by url', async () => {
++    const URL = 'https://ghibliapi.herokuapp.com/films/578ae244-7750-4d9f-867b-f3cd3d6fecf4'
++    const film = await buildGhibliCommand().open(URL)
++    expect(typeof film.title).toBe('string')
++  })
++})
+Index: src/app/services/__tests__/tmdb-client.integration.spec.js
+===================================================================
+--- src/app/services/__tests__/tmdb-client.integration.spec.js	(date 0)
++++ src/app/services/__tests__/tmdb-client.integration.spec.js	(date 0)
+@@ -1,17 +0,0 @@
+-import { retrieveATmdbFilm, searchTmdbFilm } from '../tmdb-commands'
+-
+-describe('Tmdb client', () => {
+-
+-  it('finds searched film', async () => {
+-    const result = await searchTmdbFilm('Princess Mononoke')
+-    expect(result.id).toBe(128)
+-    expect(result.backdrop_path).toContain('image.tmdb.org')
+-    expect(result.backdrop_path).toContain('.jpg')
+-    expect(result.poster_path).toContain('.jpg')
+-  })
+-
+-  it('Gets a film by url', async () => {
+-    const film = await retrieveATmdbFilm(128)
+-    expect(typeof film.title).toBe('string')
+-  })
+-})
+Index: src/app/services/__tests__/ghibli-command.integration.spec.js
+===================================================================
+--- src/app/services/__tests__/ghibli-command.integration.spec.js	(date 0)
++++ src/app/services/__tests__/ghibli-command.integration.spec.js	(date 0)
+@@ -1,21 +0,0 @@
+-import { buildGhibliCommand } from '../ghibli-commands'
+-
+-describe('GhibliCommands', () => {
+-
+-  it('Gets all films', async () => {
+-    const films = await buildGhibliCommand().retrieveAllFilms()
+-    expect(films.length).toBeGreaterThan(19)
+-    films.map((film) => expect(typeof film.title).toBe('string'))
+-  })
+-
+-  it('Gets a film', async () => {
+-    const film = await buildGhibliCommand().retrieveAFilm('578ae244-7750-4d9f-867b-f3cd3d6fecf4')
+-    expect(typeof film.title).toBe('string')
+-  })
+-
+-  it('Gets a film by url', async () => {
+-    const URL = 'https://ghibliapi.herokuapp.com/films/578ae244-7750-4d9f-867b-f3cd3d6fecf4'
+-    const film = await buildGhibliCommand().open(URL)
+-    expect(typeof film.title).toBe('string')
+-  })
+-})
+Index: src/app/services/tmbd-client.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/tmbd-client.js	(date 1510649081000)
++++ src/app/services/tmbd-client.js	(date 1510649081000)
+@@ -0,0 +1,34 @@
++import { backendClient } from './backend-client'
++const client = backendClient()
++
++export async function searchTmdbFilm(title) {
++  const backdropBase = 'https://image.tmdb.org/t/p/w780/'
++  const posterBase = 'https://image.tmdb.org/t/p/w300/'
++  const response = await tmdbCommand('search/movie', { query: title }).run()
++  const movie = response.results[0]
++  movie.backdrop_path = backdropBase + movie.backdrop_path
++  movie.poster_path = posterBase + movie.poster_path
++  return movie
++}
++
++export function retrieveATmdbFilm(id) {
++  return tmdbCommand('movie/' + id).run()
++}
++
++function tmdbCommand(sufix, payload) {
++  const API_KEY = 'b32fc40cf588f4eb1c274d51147af792'
++  const baseUrl = 'https://api.themoviedb.org/3/'
++  const command = {
++    url: baseUrl + sufix,
++    payload: {
++      api_key: API_KEY,
++      language: 'en-US',
++      ...payload
++    }
++  }
++  return { ...command, run }
++
++  function run() {
++    return client.run(command)
++  }
++}
+Index: src/app/services/GhibliRouter.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/GhibliRouter.js	(date 1510652110000)
++++ src/app/services/GhibliRouter.js	(date 1510652110000)
+@@ -0,0 +1,29 @@
++import VueRouter from 'vue-router'
++
++export const GhibliRouter = (router) => {
++  if (!router) router = new VueRouter()
++  return { navigateToFilm, navigateToCreateGig, navigateToAllGigs, getParam }
++
++  function navigateToFilm(id1, id2) {
++    router.push(`film/${id1}/${id2}`)
++  }
++
++  function navigateToCreateGig() {
++    router.push({path: '/newGig'})
++  }
++
++  function navigateToAllGigs() {
++    router.push({path: '/all'})
++  }
++
++  function getParam(id) {
++    if (!router) return ''
++    return router.currentRoute.params[id]
++  }
++}
++
++export const ghibliRouterMixin = {
++  created: function () {
++    this.ghibliRouter = GhibliRouter(this.$router)
++  }
++}
+Index: src/app/services/ghibli-client.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/ghibli-client.js	(date 1510651985000)
++++ src/app/services/ghibli-client.js	(date 1510651985000)
+@@ -0,0 +1,3 @@
++// this commands have the same name that they have in our backend
++export const RETRIEVE_ALL_FILMS = 'retrieve_all_films'
++export const RETRIEVE_FILM = 'retrieve_film'
+Index: src/app/services/JotaRouter.js
+===================================================================
+--- src/app/services/JotaRouter.js	(date 0)
++++ src/app/services/JotaRouter.js	(date 0)
+@@ -1,29 +0,0 @@
+-import VueRouter from 'vue-router'
+-
+-export const JotaRouter = (router) => {
+-  if (!router) router = new VueRouter()
+-  return { navigateToFilm, navigateToCreateGig, navigateToAllGigs, getParam }
+-
+-  function navigateToFilm(id1, id2) {
+-    router.push(`film/${id1}/${id2}`)
+-  }
+-
+-  function navigateToCreateGig() {
+-    router.push({path: '/newGig'})
+-  }
+-
+-  function navigateToAllGigs() {
+-    router.push({path: '/all'})
+-  }
+-
+-  function getParam(id) {
+-    if (!router) return ''
+-    return router.currentRoute.params[id]
+-  }
+-}
+-
+-export const jotaRouterMixin = {
+-  created: function () {
+-    this.jotaRouter = JotaRouter(this.$router)
+-  }
+-}
+Index: src/app/services/jota-payloads.js
+===================================================================
+--- src/app/services/jota-payloads.js	(date 0)
++++ src/app/services/jota-payloads.js	(date 0)
+@@ -1,9 +0,0 @@
+-export function createGigPayload(title, dateTime) {
+-  return {
+-    title: title,
+-    day: dateTime.substring(0, 10),
+-    description: 'Fake gig created by jota-api',
+-    place: 'Fake place',
+-    image_url: 'https://pbs.twimg.com/profile_images/727103317168394240/fY7WRP5T_400x400.jpg'
+-  }
+-}
+Index: src/app/services/jota-instances.js
+===================================================================
+--- src/app/services/jota-instances.js	(date 0)
++++ src/app/services/jota-instances.js	(date 0)
+@@ -1,3 +0,0 @@
+-import { GigService, Matcher } from '../fake-backend/JotaCore'
+-
+-export const gigService = new GigService(new Matcher())
