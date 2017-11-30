@@ -1,6 +1,5 @@
 <template>
   <q-infinite-scroll v-show="films.length > 0" :handler="loadMore" class="row justify-center">
-    <q-card-title>Films</q-card-title>
     <FilmCard v-for="film in films" :key="film.id" :film ="film" :onClick="goTo"/>
     <div slot="message" class="row justify-center" style="margin-bottom: 50px;">
       <q-spinner-mat :size="40" />
