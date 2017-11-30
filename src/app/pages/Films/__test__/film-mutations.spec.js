@@ -1,7 +1,7 @@
 
 import { fetchFilmsError, fetchDataRequest, fetchFilmsSuccess } from '../films-mutations'
 
-describe('Days Mutations', () => {
+describe('Films Mutations', () => {
 
   let state
   let OLD_FILMS

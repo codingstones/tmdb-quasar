@@ -20,10 +20,21 @@ export function fetchFilmsSuccess(state, page) {
 }
 
 export function fetchFilmsError(state, error) {
-  // console.error('Error fetching films', error.toString())
   state.loading = false
   state.error = error
 }
+
+export function fetchTvShowsSuccess(state, page) {
+  state.loading = false
+  state.tvShows = state.tvShows.concat(page)
+  state.error = ''
+}
+
+export function fetchTvShowsError(state, error) {
+  state.loading = false
+  state.error = error
+}
+
 export function fetchFilmRequest(state) {
   state.loading = true
   state.error = ''

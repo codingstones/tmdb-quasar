@@ -8,10 +8,14 @@ const retrievePopularFilmPage = jest.fn(() => {
   return Promise.resolve(fakeFilms)
 })
 
+const retrievePopularTvPage = jest.fn(() => {
+  return Promise.resolve(fakeFilms)
+})
+
 const retrieveAFilm = jest.fn(() => {
   return Promise.resolve(fakeFilm)
 })
 
 const posterPath = jest.fn()
 
-module.exports = { retrievePopularFilmPage, retrieveFilms, retrieveAFilm, filmIds: jest.fn(), posterPath }
+module.exports = { retrievePopularFilmPage, retrievePopularTvPage, retrieveFilms, retrieveAFilm, filmIds: jest.fn(), posterPath }

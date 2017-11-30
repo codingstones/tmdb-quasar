@@ -16,7 +16,7 @@ import {
   fetchFilmsError,
   fetchDataRequest,
   fetchFilmsSuccess,
-  fetchFilmSuccess
+  fetchFilmSuccess, fetchTvShowsSuccess, FETCH_TV_SHOWS_SUCCESS, FETCH_TV_SHOWS_ERROR, fetchTvShowsError
 } from '../app/pages/Films/films-mutations'
 import {
   RETRIEVE_POPULAR_FILMS, RETRIEVE_FILM,
@@ -28,6 +28,7 @@ Vue.use(Vuex)
 
 export const initialState = {
   films: [],
+  tvShows: [],
   filmDetail: {},
   error: false,
   loading: false
@@ -42,7 +43,9 @@ export const actions = {
 export const mutations = {
   [FETCH_FILMS_REQUEST]: fetchDataRequest,
   [FETCH_FILMS_SUCCESS]: fetchFilmsSuccess,
+  [FETCH_TV_SHOWS_SUCCESS]: fetchTvShowsSuccess,
   [FETCH_FILMS_ERROR]: fetchFilmsError,
+  [FETCH_TV_SHOWS_ERROR]: fetchTvShowsError,
   [FETCH_FILM_REQUEST]: fetchFilmRequest,
   [FETCH_FILM_SUCCESS]: fetchFilmSuccess,
   [FETCH_FILM_ERROR]: fetchFilmError
