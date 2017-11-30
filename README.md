@@ -1,4 +1,4 @@
-# Ghibli Catalog
+# TMdb Catalog
 
 ## Getting Started!
 
