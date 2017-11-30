@@ -1,9 +1,9 @@
 <template>
   <q-scroll-area slot="left" style="width: 100%; height: 100%" inset-separator>
     <q-list-header>
-      Studio Ghibli
+      TmDb
     </q-list-header>
-    <q-side-link item to="/all">
+    <q-side-link item to="/popular_films">
       <q-item-side icon="list" />
       <q-item-main label="All Films"/>
       <q-item-side icon="keyboard_arrow_right" />

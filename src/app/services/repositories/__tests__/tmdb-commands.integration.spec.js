@@ -1,7 +1,10 @@
 
-import { retrieveAFilm, retrievePopularFilmPage, retrievePopularTvPage, searchTmdbFilm } from '../tmdb-repository'
+import {
+  retrieveAFilm, retrieveATvShow, retrievePopularFilmPage, retrievePopularTvPage,
+  searchTmdbFilm
+} from '../tmdb-repository'
 
-describe('Tmdb client', () => {
+xdescribe('Tmdb client', () => {
 
   it('finds searched film', async () => {
     const result = await searchTmdbFilm({ title: 'Princess Mononoke' })
@@ -29,6 +32,11 @@ describe('Tmdb client', () => {
 
   it('Gets a film by url', async () => {
     const film = await retrieveAFilm(128)
+    expect(typeof film.title).toBe('string')
+  })
+
+  it('Gets a tv show by url', async () => {
+    const film = await retrieveATvShow(12697)
     expect(typeof film.title).toBe('string')
   })
 })

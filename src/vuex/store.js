@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {
-  retrieveAFilmAction, retrievePopularFilmsAction,
+  retrieveAFilmAction, retrieveATvShowAction, retrievePopularFilmsAction,
   retrievePopularTvShowsAction
 } from '../app/pages/Films/films-actions'
 import {
@@ -16,11 +16,12 @@ import {
   fetchFilmsError,
   fetchDataRequest,
   fetchFilmsSuccess,
-  fetchFilmSuccess, fetchTvShowsSuccess, FETCH_TV_SHOWS_SUCCESS, FETCH_TV_SHOWS_ERROR, fetchTvShowsError
+  fetchFilmSuccess, fetchTvShowsSuccess, FETCH_TV_SHOWS_SUCCESS, FETCH_TV_SHOWS_ERROR, fetchTvShowsError,
+  fetchTvShowSuccess, FETCH_TV_SHOW_SUCCESS
 } from '../app/pages/Films/films-mutations'
 import {
   RETRIEVE_POPULAR_FILMS, RETRIEVE_FILM,
-  RETRIEVE_POPULAR_TV_SHOWS
+  RETRIEVE_POPULAR_TV_SHOWS, RETRIEVE_TV_SHOW
 } from '../app/services/repositories/backend-commands'
 import { numberOfFilms } from './getters'
 
@@ -30,6 +31,7 @@ export const initialState = {
   films: [],
   tvShows: [],
   filmDetail: {},
+  tvShowDetail: {},
   error: false,
   loading: false
 }
@@ -37,7 +39,8 @@ export const initialState = {
 export const actions = {
   [RETRIEVE_POPULAR_FILMS]: retrievePopularFilmsAction(),
   [RETRIEVE_POPULAR_TV_SHOWS]: retrievePopularTvShowsAction(),
-  [RETRIEVE_FILM]: retrieveAFilmAction()
+  [RETRIEVE_FILM]: retrieveAFilmAction(),
+  [RETRIEVE_TV_SHOW]: retrieveATvShowAction()
 }
 
 export const mutations = {
@@ -48,7 +51,8 @@ export const mutations = {
   [FETCH_TV_SHOWS_ERROR]: fetchTvShowsError,
   [FETCH_FILM_REQUEST]: fetchFilmRequest,
   [FETCH_FILM_SUCCESS]: fetchFilmSuccess,
-  [FETCH_FILM_ERROR]: fetchFilmError
+  [FETCH_FILM_ERROR]: fetchFilmError,
+  [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess
 }
 
 export const getters = {

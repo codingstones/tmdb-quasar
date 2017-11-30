@@ -1,5 +1,5 @@
 
-import { fetchTvShowsError, fetchDataRequest, fetchTvShowsSuccess } from '../films-mutations'
+import { fetchTvShowsError, fetchDataRequest, fetchTvShowsSuccess, fetchTvShowSuccess } from '../films-mutations'
 
 describe('TV shows Mutations', () => {
 
@@ -10,7 +10,7 @@ describe('TV shows Mutations', () => {
     state = { tvShows: OLD_FILMS }
   })
 
-  describe('When fetching films', () => {
+  describe('When fetching tv shows', () => {
 
     it('starts request', () => {
       fetchDataRequest(state)
@@ -32,6 +32,18 @@ describe('TV shows Mutations', () => {
       fetchTvShowsError(state, 'Any Error')
 
       expect(state).toEqual({ loading: false, tvShows: OLD_FILMS, error: 'Any Error' })
+    })
+  })
+
+  describe('When fetching a tv show detail', () => {
+    it('finishes with success', () => {
+      const SHOW = 'any show'
+
+      fetchTvShowSuccess(state, SHOW)
+
+      expect(state.loading).toBeFalsy()
+      expect(state.error).toBe('')
+      expect(state.tvShowDetail).toBe(SHOW)
     })
   })
 })

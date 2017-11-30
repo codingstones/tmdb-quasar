@@ -1,9 +1,10 @@
 import {
-  retrieveAFilm, retrievePopularFilmPage,
+  retrieveAFilm, retrieveATvShow, retrievePopularFilmPage,
   retrievePopularTvPage
 } from '../../services/repositories/tmdb-repository'
 import {
   FETCH_DATA_REQUEST, FETCH_FILM_ERROR, FETCH_FILM_SUCCESS, FETCH_FILMS_ERROR, FETCH_FILMS_SUCCESS,
+  FETCH_TV_SHOW_SUCCESS,
   FETCH_TV_SHOWS_ERROR,
   FETCH_TV_SHOWS_SUCCESS
 } from './films-mutations'
@@ -19,4 +20,8 @@ export function retrievePopularTvShowsAction() {
 
 export function retrieveAFilmAction() {
   return queryAction(retrieveAFilm, FETCH_DATA_REQUEST, FETCH_FILM_SUCCESS, FETCH_FILM_ERROR).run
+}
+
+export function retrieveATvShowAction() {
+  return queryAction(retrieveATvShow, FETCH_DATA_REQUEST, FETCH_TV_SHOW_SUCCESS, FETCH_FILM_ERROR).run
 }

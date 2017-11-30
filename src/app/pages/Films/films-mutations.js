@@ -7,6 +7,7 @@ export const FETCH_TV_SHOWS_ERROR = 'fetchTvShowsError'
 export const FETCH_FILM_REQUEST = 'fetchFilmRequest'
 export const FETCH_FILM_SUCCESS = 'fetchFilmSuccess'
 export const FETCH_FILM_ERROR = 'fetchFilmError'
+export const FETCH_TV_SHOW_SUCCESS = 'fetchTvShowSuccess'
 
 export function fetchDataRequest(state) {
   state.loading = true
@@ -51,4 +52,10 @@ export function fetchFilmError(state, error) {
   // console.error('Error fetching films', error.toString())
   state.loading = false
   state.error = error
+}
+
+export function fetchTvShowSuccess(state, show) {
+  state.loading = false
+  state.tvShowDetail = show
+  state.error = ''
 }
