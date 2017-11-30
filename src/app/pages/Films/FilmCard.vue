@@ -1,9 +1,8 @@
 <template functional>
   <q-card @click="props.onClick(props.film)" inline>
     <q-card-media overlay-position="top">
-      <img v-if="props.film.backdrop_path.includes('null')" src="~assets/not-found.png">
-      <img v-else :src="props.film.backdrop_path">
-      <!--<progressive-img :src="props.film.backdrop_path"/>-->
+      <img v-if="props.film.backdrop_path.includes('null')" src="~assets/not-found.png"/>
+      <progressive-img v-else :src="props.film.backdrop_path"/>
       <q-card-title slot="overlay">
         {{ props.film.title }}
         <span slot="props.subtitle">({{props.film.release_date}})</span>
