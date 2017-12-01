@@ -42,10 +42,10 @@ export function retrieveATvShow(id) {
   return tmdbCommand('tv/' + id).run()
 }
 
-function tmdbCommand(sufix, payload) {
+function tmdbCommand(suffix, payload) {
   const baseUrl = 'https://api.themoviedb.org/3/'
   const command = {
-    url: baseUrl + sufix,
+    url: baseUrl + suffix,
     payload: {
       api_key: process.env.API_KEY,
       language: 'en-US',

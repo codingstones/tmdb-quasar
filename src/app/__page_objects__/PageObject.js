@@ -3,7 +3,7 @@ export default class PageObject {
     this.wrapper = wrapper
   }
 
-  wait() {
+  resolveAll() {
     return new Promise(resolve => setImmediate(resolve))
   }
 

@@ -13,11 +13,11 @@ describe('Popular Tv Shows', () => {
       .withProps({ isLoading: false, onClick: jest.fn })
       .mount()
     page = new FilmsPage(wrapper)
-    await page.wait()
+    await page.resolveAll()
   })
 
   it('renders film titles', async() => {
-    await page.wait()
+    await page.resolveAll()
     fakeFilms.map(film => page.contains(film.title))
   })
 })

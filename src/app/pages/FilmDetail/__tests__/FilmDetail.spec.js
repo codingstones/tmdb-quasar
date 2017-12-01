@@ -13,7 +13,7 @@ describe('Film Detail', () => {
       .withStore(store)
       .mount()
     const page = new PageObject(wrapper)
-    await page.wait()
+    await page.resolveAll()
 
     expect(wrapper.text()).toContain(fakeFilm.title)
   })

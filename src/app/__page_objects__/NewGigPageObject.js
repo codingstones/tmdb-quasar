@@ -55,6 +55,6 @@ export default class NewGigPageObject extends PageObject {
   fillForm(name, date) {
     this.writeNameAsync(name)
     this.writeDatetime(date)
-    this.wait()
+    this.resolveAll()
   }
 }
