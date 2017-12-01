@@ -1,5 +1,4 @@
 import { rejectedPromise, resolvedPromise } from '../../../../../test/helpers'
-import { retrievePopularFilmsAction } from '../films-actions'
 import { queryAction } from '../pattern-actions'
 
 describe('REQUEST/SUCCESS/ERROR actions', () => {
