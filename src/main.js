@@ -20,13 +20,13 @@ import Vuelidate from 'vuelidate'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import { store } from './vuex/store'
-import { jotaRouterMixin } from './app/services/TMdbRouter'
+import { tmdbRouterMixin } from './app/services/TMdbRouter'
 import VueProgressiveImage from 'vue-progressive-image'
 
 Vue.config.productionTip = false
 Vue.use(Quasar)
 Vue.use(Vuelidate)
-Vue.mixin(jotaRouterMixin)
+Vue.mixin(tmdbRouterMixin)
 sync(store, router)
 Vue.use(VueProgressiveImage)
 

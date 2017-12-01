@@ -1,19 +1,33 @@
 import VueRouter from 'vue-router'
+import { POPULAR_FILMS_PATH, POPULAR_TV_SHOWS_PATH, SEARCH_PATH } from '../../router'
 
 export const TMdbRouter = (router) => {
   if (!router) router = new VueRouter()
-  return { navigateToFilm, navigateToCreateGig, navigateToAllGigs, getParam }
+  return { navigateToFilm,
+    navigateToSearch,
+    navigateToCreateFilm,
+    navigateToPopularFilms,
+    navigateToPopularTvShows,
+    getParam }
 
   function navigateToFilm(id1) {
     router.push(`film/${id1}`)
   }
 
-  function navigateToCreateGig() {
-    router.push({path: '/newGig'})
+  function navigateToCreateFilm() {
+    router.push({path: '/newFilm'})
   }
 
-  function navigateToAllGigs() {
-    router.push({path: '/all'})
+  function navigateToPopularFilms() {
+    router.push({path: POPULAR_FILMS_PATH})
+  }
+
+  function navigateToPopularTvShows() {
+    router.push({path: POPULAR_TV_SHOWS_PATH})
+  }
+
+  function navigateToSearch() {
+    router.push({path: SEARCH_PATH})
   }
 
   function getParam(id) {
@@ -22,8 +36,8 @@ export const TMdbRouter = (router) => {
   }
 }
 
-export const jotaRouterMixin = {
+export const tmdbRouterMixin = {
   created: function () {
-    this.jotaRouter = TMdbRouter(this.$router)
+    this.tmdbRouter = TMdbRouter(this.$router)
   }
 }

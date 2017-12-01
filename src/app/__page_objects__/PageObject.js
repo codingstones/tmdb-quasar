@@ -28,7 +28,7 @@ export default class PageObject {
   }
 
   setRouterSpy(routerSpy) {
-    this.wrapper.vm.jotaRouter = routerSpy
+    this.wrapper.vm.tmdbRouter = routerSpy
   }
 
   checkCurrentPath(state, path) {

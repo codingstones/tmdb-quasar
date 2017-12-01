@@ -18,7 +18,7 @@
         done()
       },
       goTo(film) {
-        this.jotaRouter.navigateToFilm(film.id)
+        this.tmdbRouter.navigateToFilm(film.id)
       }
     }
   }

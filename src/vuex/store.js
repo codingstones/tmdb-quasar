@@ -57,7 +57,8 @@ export const mutations = {
 
 export const getters = {
   numberOfFilms,
-  paramId: state => state.route.params.id
+  paramId: state => state.route.params.id,
+  currentRoute: state => state.route.path
 }
 
 export const store = new Vuex.Store({
