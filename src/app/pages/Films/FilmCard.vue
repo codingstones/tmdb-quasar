@@ -7,6 +7,7 @@
 
     <q-card-main>
       {{ props.film.title }}
+      {{ props.film.name }}
       <!--{{ props.film }}-->
       <q-item-tile sublabel>
         <q-icon name="ion-star" color="warning"/>

@@ -1,5 +1,5 @@
-<template functional>
-  <q-tabs align="justify">
+<template>
+  <q-tabs align="justify" v-show="isVisible()">
     <q-route-tab
       default
       to="/popular_films"
@@ -17,4 +17,19 @@
     </q-route-tab>
   </q-tabs>
 </template>
+
+<script>
+  import { mapGetters } from 'vuex'
+  import { SEARCH_PATH } from '../../router'
+  export default {
+    computed: {
+      ...mapGetters(['currentRoute'])
+    },
+    methods: {
+      isVisible() {
+        return this.currentRoute !== SEARCH_PATH
+      }
+    }
+  }
+</script>
 

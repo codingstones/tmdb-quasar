@@ -6,7 +6,7 @@
     <q-toolbar-title>
       The Movie Database
     </q-toolbar-title>
-    <q-btn color='secondary'>
+    <q-btn color='secondary' @click="openSearch()">
       <q-icon name="search"/>
       SEARCH
     </q-btn>
@@ -18,6 +18,9 @@
     methods: {
       clickDrawer() {
         this.$emit('drawerClick')
+      },
+      openSearch() {
+        this.tmdbRouter.navigateToSearch()
       }
     }
   }
