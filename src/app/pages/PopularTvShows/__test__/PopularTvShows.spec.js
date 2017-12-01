@@ -10,14 +10,12 @@ describe('Popular Tv Shows', () => {
     store = cloneProductionStore()
     wrapper = Wrap(PopularTvShows)
       .withStore(store)
-      .withProps({ isLoading: false, onClick: jest.fn })
+      .withProps({ isLoading: false })
       .mount()
     page = new FilmsPage(wrapper)
-    await page.resolveAll()
   })
 
   it('renders film titles', async() => {
-    await page.resolveAll()
     fakeFilms.map(film => page.contains(film.title))
   })
 })

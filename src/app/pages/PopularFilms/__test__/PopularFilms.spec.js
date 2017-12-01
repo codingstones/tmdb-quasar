@@ -13,11 +13,9 @@ describe('Popular Films', () => {
       .withProps({ isLoading: false, onClick: jest.fn })
       .mount()
     page = new FilmsPage(wrapper)
-    await page.resolveAll()
   })
 
   it('renders film titles', async() => {
-    await page.resolveAll()
     fakeFilms.map(film => page.contains(film.title))
   })
 })
