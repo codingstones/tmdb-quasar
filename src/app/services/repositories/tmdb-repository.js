@@ -2,7 +2,7 @@ import { backendClient } from './backend-client'
 const client = backendClient()
 
 export function posterPath(relativePath) {
-  const posterBase = 'https://image.tmdb.org/t/p/w300/'
+  const posterBase = 'https://image.tmdb.org/t/p/w780/'
   return posterBase + relativePath
 }
 

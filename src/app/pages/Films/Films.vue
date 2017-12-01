@@ -24,7 +24,7 @@
   }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus" scoped>
   @import '~variables'
 
   .q-card-title {
