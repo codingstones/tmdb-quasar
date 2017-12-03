@@ -1,7 +1,7 @@
 import PopularTvShows from '@/app/pages/PopularTvShows/PopularTvShows.vue'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
-import FilmsPage from '../../../__page_objects__/FilmsPageObject'
-import { fakeFilms } from '../../../services/repositories/__mocks__/fake-films'
+import ItemsPage from '../../../__page_objects__/ItemsPageObject'
+import { fakeTvShows } from '../../../services/repositories/__mocks__/fake-tv-shows'
 jest.mock('@/app/services/repositories/tmdb-repository')
 
 describe('Popular Tv Shows', () => {
@@ -12,10 +12,10 @@ describe('Popular Tv Shows', () => {
       .withStore(store)
       .withProps({ isLoading: false })
       .mount()
-    page = new FilmsPage(wrapper)
+    page = new ItemsPage(wrapper)
   })
 
-  it('renders film titles', async() => {
-    fakeFilms.map(film => page.contains(film.title))
+  it('renders tv shows titles', async() => {
+    fakeTvShows.map(film => page.contains(film.name))
   })
 })

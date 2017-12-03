@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-  retrieveAFilmAction, retrieveATvShowAction, retrievePopularFilmsAction,
-  retrievePopularTvShowsAction
-} from '../app/pages/Films/films-actions'
+import { retrieveAFilmAction, retrievePopularFilmsAction } from '../app/pages/PopularFilms/films-actions'
 import {
   FETCH_FILM_ERROR,
   FETCH_FILM_REQUEST,
@@ -11,17 +8,25 @@ import {
   FETCH_FILMS_ERROR,
   FETCH_FILMS_REQUEST,
   FETCH_FILMS_SUCCESS,
+  fetchDataRequest,
   fetchFilmError,
   fetchFilmRequest,
   fetchFilmsError,
-  fetchDataRequest,
   fetchFilmsSuccess,
-  fetchFilmSuccess, fetchTvShowsSuccess, FETCH_TV_SHOWS_SUCCESS, FETCH_TV_SHOWS_ERROR, fetchTvShowsError,
-  fetchTvShowSuccess, FETCH_TV_SHOW_SUCCESS
-} from '../app/pages/Films/films-mutations'
+  fetchFilmSuccess
+} from '../app/pages/PopularFilms/films-mutations'
+import { retrieveATvShowAction, retrievePopularTvShowsAction } from '../app/pages/PopularTvShows/tv-shows-actions'
 import {
-  RETRIEVE_POPULAR_FILMS, RETRIEVE_FILM,
-  RETRIEVE_POPULAR_TV_SHOWS, RETRIEVE_TV_SHOW
+  FETCH_TV_SHOW_SUCCESS,
+  FETCH_TV_SHOWS_ERROR, FETCH_TV_SHOWS_SUCCESS, fetchTvShowsError,
+  fetchTvShowsSuccess, fetchTvShowSuccess
+} from '../app/pages/PopularTvShows/tv-shows-mutations'
+import { TOOGLE_SEARCH, toogleSearch } from '../app/pages/Search/search-mutations'
+import {
+  RETRIEVE_FILM,
+  RETRIEVE_POPULAR_FILMS,
+  RETRIEVE_POPULAR_TV_SHOWS,
+  RETRIEVE_TV_SHOW
 } from '../app/services/repositories/backend-commands'
 import { numberOfFilms } from './getters'
 
@@ -33,7 +38,8 @@ export const initialState = {
   filmDetail: {},
   tvShowDetail: {},
   error: false,
-  loading: false
+  loading: false,
+  searching: false
 }
 
 export const actions = {
@@ -52,7 +58,8 @@ export const mutations = {
   [FETCH_FILM_REQUEST]: fetchFilmRequest,
   [FETCH_FILM_SUCCESS]: fetchFilmSuccess,
   [FETCH_FILM_ERROR]: fetchFilmError,
-  [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess
+  [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess,
+  [TOOGLE_SEARCH]: toogleSearch
 }
 
 export const getters = {

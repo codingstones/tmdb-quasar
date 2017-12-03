@@ -5,7 +5,6 @@ export function queryAction(command, REQUEST, SUCCESS, ERROR) {
     commit(REQUEST)
     try {
       const result = await command(payload)
-      // console.log('RESULT ', result)
       commit(SUCCESS, result)
     }
     catch (error) {

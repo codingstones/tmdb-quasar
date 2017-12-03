@@ -8,7 +8,7 @@ describe('Vuex Getters', () => {
 
   const state = { films: fakeFilms }
 
-  it('Counts the Number of Films', () => {
+  it('Counts the Number of Items', () => {
     expect(numberOfFilms(state)).toBe(3)
   })
 })

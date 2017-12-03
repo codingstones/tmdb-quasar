@@ -1,19 +1,22 @@
-import Films from '@/app/pages/Films/Films.vue'
+import Items from '@/app/pages/Items/Items.vue'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
-import FilmsPage from '../../../__page_objects__/FilmsPageObject'
+import ItemsPage from '../../../__page_objects__/ItemsPageObject'
 import { fakeFilms } from '../../../services/repositories/__mocks__/fake-films'
 
-describe('Films', () => {
-
+describe('Items', () => {
   let page, wrapper, store
+  let navigateToSpy = jest.fn()
   beforeEach(async () => {
     store = cloneProductionStore()
     store.state.films = fakeFilms
-    wrapper = Wrap(Films)
+    wrapper = Wrap(Items)
       .withStore(store)
-      .withProps({ isLoading: false, onClick: jest.fn, films: fakeFilms })
+      .withProps({ isLoading: false,
+        onClick: jest.fn(),
+        items: fakeFilms,
+        goTo: navigateToSpy })
       .mount()
-    page = new FilmsPage(wrapper)
+    page = new ItemsPage(wrapper)
   })
 
   it('renders film titles', async() => {
@@ -21,17 +24,10 @@ describe('Films', () => {
   })
 
   describe('When clicking buttons', () => {
-
-    let navigateToFilmSpy
-    beforeEach(async () => {
-      navigateToFilmSpy = jest.fn()
-      page.setRouterSpy({ navigateToFilm: navigateToFilmSpy })
-    })
-
     it('navigates to first film detail', async () => {
       const FIRST_FILM = fakeFilms[0]
-      page.clickFirstGig()
-      expect(navigateToFilmSpy).toHaveBeenCalledWith(FIRST_FILM.id)
+      page.clickFirstItem()
+      expect(navigateToSpy).toHaveBeenCalledWith(FIRST_FILM.id)
     })
   })
 })

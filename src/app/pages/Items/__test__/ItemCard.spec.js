@@ -1,7 +1,7 @@
-import FilmCard from '@/app/pages/Films/FilmCard.vue'
+import ItemCard from '@/app/pages/Items/ItemCard.vue'
 import { mount } from 'vue-test-utils'
 
-describe('FilmCard', () => {
+describe('ItemCard', () => {
 
   it('renders film content', async () => {
 
@@ -11,7 +11,7 @@ describe('FilmCard', () => {
       backdrop_path: 'an image url'
     }
 
-    const wrapper = mount(FilmCard, { propsData: {film: FILM} })
+    const wrapper = mount(ItemCard, { propsData: {item: FILM} })
 
     expect(wrapper.text()).toContain('a title')
     expect(wrapper.text()).toContain('avg')

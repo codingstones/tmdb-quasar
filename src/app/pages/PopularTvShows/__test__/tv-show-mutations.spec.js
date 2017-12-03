@@ -1,5 +1,6 @@
 
-import { fetchTvShowsError, fetchDataRequest, fetchTvShowsSuccess, fetchTvShowSuccess } from '../films-mutations'
+import { fetchDataRequest } from '../../PopularFilms/films-mutations'
+import { fetchTvShowsError, fetchTvShowsSuccess, fetchTvShowSuccess } from '../tv-shows-mutations'
 
 describe('TV shows Mutations', () => {
 

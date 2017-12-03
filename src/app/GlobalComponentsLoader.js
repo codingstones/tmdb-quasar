@@ -30,7 +30,8 @@ import {
   QTabs,
   QInfiniteScroll,
   QRouteTab,
-  QTabPane
+  QTabPane,
+  QSearch
 } from 'quasar-framework'
 import LoadSpinner from '@/app/shared-components/LoadSpinner.vue'
 import FormButton from '@/app/shared-components/FormButton.vue'
@@ -38,15 +39,17 @@ import BackToTopButton from '@/app/shared-components/BackToTopButton.vue'
 import SideBar from '@/app/shared-components/SideBar.vue'
 import Toolbar from '@/app/shared-components/Toolbar.vue'
 import Tabs from '@/app/shared-components/Tabs.vue'
-import FilmCard from '@/app/pages/Films/FilmCard.vue'
-import Films from '@/app/pages/Films/Films.vue'
+import ItemCard from '@/app/pages/Items/ItemCard.vue'
+import ItemDetail from '@/app/pages/ItemDetail/ItemDetail.vue'
+import Items from '@/app/pages/Items/Items.vue'
 
 export function registerGlobalComponents() {
   Vue.config.productionTip = false
 
   Vue.component('LoadSpinner', LoadSpinner)
-  Vue.component('FilmCard', FilmCard)
-  Vue.component('Films', Films)
+  Vue.component('ItemCard', ItemCard)
+  Vue.component('ItemDetail', ItemDetail)
+  Vue.component('Items', Items)
   Vue.component('QList', QList)
   Vue.component('QListHeader', QListHeader)
   Vue.component('QItem', QItem)
@@ -78,6 +81,7 @@ export function registerGlobalComponents() {
   Vue.component('QTabPane', QTabPane)
   Vue.component('QRouteTab', QRouteTab)
   Vue.component('QInfiniteScroll', QInfiniteScroll)
+  Vue.component('QSearch', QSearch)
   Vue.component('FormButton', FormButton)
   Vue.component('BackToTopButton', BackToTopButton)
   Vue.component('Toolbar', Toolbar)

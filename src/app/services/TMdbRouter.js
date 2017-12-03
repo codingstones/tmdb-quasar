@@ -4,14 +4,19 @@ import { POPULAR_FILMS_PATH, POPULAR_TV_SHOWS_PATH, SEARCH_PATH } from '../../ro
 export const TMdbRouter = (router) => {
   if (!router) router = new VueRouter()
   return { navigateToFilm,
+    navigateToTvShow,
     navigateToSearch,
     navigateToCreateFilm,
     navigateToPopularFilms,
     navigateToPopularTvShows,
     getParam }
 
-  function navigateToFilm(id1) {
-    router.push(`film/${id1}`)
+  function navigateToFilm(id) {
+    router.push(`film/${id}`)
+  }
+
+  function navigateToTvShow(id) {
+    router.push(`tvShow/${id}`)
   }
 
   function navigateToCreateFilm() {

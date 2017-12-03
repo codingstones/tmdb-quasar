@@ -1,4 +1,5 @@
 import { fakeFilms, fakeFilm } from './fake-films'
+import { fakeTvShow, fakeTvShows } from './fake-tv-shows'
 
 const retrieveFilms = jest.fn(() => {
   return Promise.resolve(fakeFilms)
@@ -9,7 +10,7 @@ const retrievePopularFilmPage = jest.fn(() => {
 })
 
 const retrievePopularTvPage = jest.fn(() => {
-  return Promise.resolve(fakeFilms)
+  return Promise.resolve(fakeTvShows)
 })
 
 const retrieveAFilm = jest.fn(() => {
@@ -17,7 +18,7 @@ const retrieveAFilm = jest.fn(() => {
 })
 
 const retrieveATvShow = jest.fn(() => {
-  return Promise.resolve(fakeFilm)
+  return Promise.resolve(fakeTvShow)
 })
 
 const posterPath = jest.fn()

@@ -1,16 +1,16 @@
 import PageObject from './PageObject'
 
-export default class FilmsPageObject extends PageObject {
+export default class ItemsPageObject extends PageObject {
   constructor(wrapper) {
     super(wrapper)
     this.wrapper = wrapper
   }
 
-  clickFirstGig() {
+  clickFirstItem() {
     this.wrapper.findAll('.q-card').at(0).trigger('click')
   }
 
-  clickSecondGig() {
+  clickSecondItem() {
     this.wrapper.findAll('.q-card').at(1).trigger('click')
   }
 }

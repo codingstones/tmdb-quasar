@@ -1,4 +1,4 @@
-import { rejectedPromise, resolvedPromise } from '../../../../../test/helpers'
+import { rejectedPromise, resolvedPromise } from '../../../test/helpers'
 import { queryAction } from '../pattern-actions'
 
 describe('REQUEST/SUCCESS/ERROR actions', () => {

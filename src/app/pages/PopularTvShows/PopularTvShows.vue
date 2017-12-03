@@ -1,5 +1,5 @@
 <template>
-  <Films :retrievePages="retrieve_popular_tv_shows" :films="tvShows"/>
+  <Items :retrievePages="retrieve_popular_tv_shows" :items="tvShows" :goTo="tmdbRouter.navigateToTvShow"/>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <q-infinite-scroll v-show="films.length > 0" :handler="loadMore" class="row justify-center">
-    <FilmCard v-for="film in films" :key="film.id" :film ="film" :onClick="goTo"/>
+  <q-infinite-scroll v-show="items.length > 0" :handler="loadMore" class="row justify-center">
+    <ItemCard v-for="item in items" :key="item.id" :item ="item" :onClick="goTo"/>
     <div slot="message" class="row justify-center" style="margin-bottom: 50px;">
       <q-spinner-mat :size="40" />
     </div>
@@ -10,15 +10,12 @@
 <script>
   let pageNumber = 1
   export default {
-    props: ['retrievePages', 'films'],
+    props: ['retrievePages', 'items', 'goTo'],
     methods: {
       async loadMore(index, done) {
         pageNumber++
         await this.retrievePages({ pageNumber })
         done()
-      },
-      goTo(film) {
-        this.tmdbRouter.navigateToFilm(film.id)
       }
     }
   }

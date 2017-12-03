@@ -1,7 +1,7 @@
 import TvShowDetail from '@/app/pages/TvShowDetail/TvShowDetail.vue'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
 import PageObject from '../../../__page_objects__/PageObject'
-import { fakeFilm } from '../../../services/repositories/__mocks__/fake-films'
+import { fakeTvShow } from '../../../services/repositories/__mocks__/fake-tv-shows'
 
 jest.mock('@/app/services/repositories/tmdb-repository')
 
@@ -15,6 +15,6 @@ describe('Tv Show Detail', () => {
     const page = new PageObject(wrapper)
     await page.resolveAll()
 
-    expect(wrapper.text()).toContain(fakeFilm.title)
+    expect(wrapper.text()).toContain(fakeTvShow.name)
   })
 })

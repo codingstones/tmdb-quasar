@@ -1,5 +1,5 @@
 <template>
-  <Films :retrievePages="retrieve_popular_films" :films="films"/>
+  <Items :retrievePages="retrieve_popular_films" :items="films" :goTo="tmdbRouter.navigateToFilm"/>
 </template>
 
 <script>
@@ -10,7 +10,10 @@
       ...mapState(['films'])
     },
     methods: {
-      ...mapActions(['retrieve_popular_films'])
+      ...mapActions(['retrieve_popular_films']),
+      goTo(film) {
+        this.tmdbRouter.navigateToFilm(film.id)
+      }
     },
     async created() {
       Loading.show({message: 'Loading films...'})
