@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { buildCreateFilmAction } from '../app/pages/NewFilm/new-film-actions'
+import {
+  CREATE_FILM_ERROR, CREATE_FILM_REQUEST, CREATE_FILM_SUCCESS, createFilmError,
+  createFilmRequest, createFilmSuccess
+} from '../app/pages/NewFilm/new-film-mutations'
 import { retrieveAFilmAction, retrievePopularFilmsAction } from '../app/pages/PopularFilms/films-actions'
 import {
   FETCH_FILM_ERROR,
@@ -18,11 +23,15 @@ import {
 import { retrieveATvShowAction, retrievePopularTvShowsAction } from '../app/pages/PopularTvShows/tv-shows-actions'
 import {
   FETCH_TV_SHOW_SUCCESS,
-  FETCH_TV_SHOWS_ERROR, FETCH_TV_SHOWS_SUCCESS, fetchTvShowsError,
-  fetchTvShowsSuccess, fetchTvShowSuccess
+  FETCH_TV_SHOWS_ERROR,
+  FETCH_TV_SHOWS_SUCCESS,
+  fetchTvShowsError,
+  fetchTvShowsSuccess,
+  fetchTvShowSuccess
 } from '../app/pages/PopularTvShows/tv-shows-mutations'
 import { TOOGLE_SEARCH, toogleSearch } from '../app/pages/Search/search-mutations'
 import {
+  CREATE_FILM,
   RETRIEVE_FILM,
   RETRIEVE_POPULAR_FILMS,
   RETRIEVE_POPULAR_TV_SHOWS,
@@ -46,7 +55,8 @@ export const actions = {
   [RETRIEVE_POPULAR_FILMS]: retrievePopularFilmsAction(),
   [RETRIEVE_POPULAR_TV_SHOWS]: retrievePopularTvShowsAction(),
   [RETRIEVE_FILM]: retrieveAFilmAction(),
-  [RETRIEVE_TV_SHOW]: retrieveATvShowAction()
+  [RETRIEVE_TV_SHOW]: retrieveATvShowAction(),
+  [CREATE_FILM]: buildCreateFilmAction()
 }
 
 export const mutations = {
@@ -59,6 +69,9 @@ export const mutations = {
   [FETCH_FILM_SUCCESS]: fetchFilmSuccess,
   [FETCH_FILM_ERROR]: fetchFilmError,
   [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess,
+  [CREATE_FILM_REQUEST]: createFilmRequest,
+  [CREATE_FILM_SUCCESS]: createFilmSuccess,
+  [CREATE_FILM_ERROR]: createFilmError,
   [TOOGLE_SEARCH]: toogleSearch
 }
 

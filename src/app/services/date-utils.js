@@ -52,3 +52,7 @@ function toTitleCase(str) {
 export function year(isoDate) {
   return isoDate.substring(0, 4)
 }
+
+function capitalize(date) {
+  return date.replace(/\b\w/g, l => l.toUpperCase())
+}

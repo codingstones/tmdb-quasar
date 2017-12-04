@@ -42,6 +42,10 @@ export function retrieveATvShow(id) {
   return tmdbCommand('tv/' + id).run()
 }
 
+export function createAFilm(film) {
+  return Promise.resolve('OK')
+}
+
 function tmdbCommand(suffix, payload) {
   const baseUrl = 'https://api.themoviedb.org/3/'
   const command = {

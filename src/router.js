@@ -12,12 +12,14 @@ import PopularTvShows from '@/app/pages/PopularTvShows/PopularTvShows.vue'
 import FilmDetail from '@/app/pages/FilmDetail/FilmDetail.vue'
 import TvShowDetail from '@/app/pages/TvShowDetail/TvShowDetail.vue'
 import Search from '@/app/pages/Search/Search.vue'
+import NewFilm from '@/app/pages/NewFilm/NewFilm.vue'
 
 export const POPULAR_FILMS_PATH = '/popular_films'
 export const POPULAR_TV_SHOWS_PATH = '/popular_tv_shows'
 export const SEARCH_PATH = '/search'
 export const FILM_DETAIL_PATH = '/film/'
 export const TV_SHOW_DETAIL_PATH = '/tvShow/'
+export const NEW_FILM_PATH = '/newFilm/'
 
 const router = new VueRouter({
   routes:
@@ -28,6 +30,7 @@ const router = new VueRouter({
     { path: SEARCH_PATH, component: Search },
     { path: FILM_DETAIL_PATH + ':id', component: FilmDetail },
     { path: TV_SHOW_DETAIL_PATH + ':id', component: TvShowDetail },
+    { path: NEW_FILM_PATH, component: NewFilm },
     { path: '*', component: load('Error404') }
   ],
   scrollBehavior (to, from, savedPosition) {
