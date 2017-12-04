@@ -41,9 +41,10 @@ export function retrieveAFilm(id) {
 export function retrieveATvShow(id) {
   return tmdbCommand('tv/' + id).run()
 }
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export function createAFilm(payload) {
-  return Promise.resolve('OK')
+  return delay(2000).then(() => 'OK')
 }
 
 function tmdbCommand(suffix, payload) {
