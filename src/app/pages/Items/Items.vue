@@ -1,6 +1,8 @@
 <template>
-  <q-infinite-scroll v-show="items.length > 0" :handler="loadMore" class="row justify-center">
-    <ItemCard v-for="item in items" :key="item.id" :item ="item" :onClick="goTo"/>
+  <q-infinite-scroll v-show="items.length > 0" :handler="loadMore">
+    <div class="row justify-center">
+      <ItemCard v-for="item in items" :key="item.id" :item ="item" :onClick="goTo"/>
+    </div>
     <div slot="message" class="row justify-center" style="margin-bottom: 50px;">
       <q-spinner-mat :size="40" />
     </div>
@@ -29,11 +31,10 @@
 <style lang="stylus" scoped>
   @import '~variables'
 
-  .q-card-title {
-    color: black
-    font-weight: bold
-    font-size: 150%
-  }
+  .q-card-title
+    color black
+    font-weight bold
+    font-size 150%
 
   .q-card
     display inline
