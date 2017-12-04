@@ -1,5 +1,5 @@
 <template functional>
-  <q-card @click="props.onClick(props.item.id)" inline class="menu-card">
+  <q-card v-on:click.once="props.onClick(props.item.id)" inline class="menu-card">
     <q-card-media overlay-position="top">
       <img v-if="props.item.backdrop_path.includes('null')" src="~assets/not-found.png"/>
       <progressive-img v-else :src="props.item.backdrop_path"/>
