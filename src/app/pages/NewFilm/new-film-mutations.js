@@ -10,8 +10,7 @@ export function createFilmRequest(state) {
 export function createFilmSuccess(state, film) {
   state.loading = false
   state.error = ''
-
-  state.films.push(film)
+  state.films.unshift(film)
 }
 
 export function createFilmError(state, error) {

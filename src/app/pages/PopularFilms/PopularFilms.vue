@@ -1,8 +1,10 @@
 <template>
+  <div>
   <Items :retrievePage="retrieve_popular_films"
          :items="films"
          :goTo="tmdbRouter.navigateToFilm"
          :pageNumber="filmPageNumber" />
+  </div>
 </template>
 
 <script>

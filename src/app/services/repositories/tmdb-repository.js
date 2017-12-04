@@ -42,7 +42,7 @@ export function retrieveATvShow(id) {
   return tmdbCommand('tv/' + id).run()
 }
 
-export function createAFilm(film) {
+export function createAFilm(payload) {
   return Promise.resolve('OK')
 }
 

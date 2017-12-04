@@ -21,7 +21,3 @@ export function createFilmAction(createFilm) {
     }
   }
 }
-
-export function createFilmPayload(title, date) {
-  return {title, date}
-}

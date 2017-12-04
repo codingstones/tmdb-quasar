@@ -28,10 +28,10 @@
   import { mapActions, mapState } from 'vuex'
   import { required, minLength, maxLength } from 'vuelidate/lib/validators'
   import { CREATE_FILM } from '../../services/repositories/backend-commands'
+  import { createFilmPayload } from '../../services/repositories/tmdb-payloads'
   import TextInput from '../../shared-components/TextInput.vue'
   import DateTimeInput from '../../shared-components/DateTimeInput.vue'
   import { isFutureDatetime } from './customValidations'
-  import { createFilmPayload } from './new-film-actions'
 
   export default {
     validations: {

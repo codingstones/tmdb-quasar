@@ -21,11 +21,18 @@ const retrieveATvShow = jest.fn(() => {
   return Promise.resolve(fakeTvShow)
 })
 
+const createAFilm = jest.fn((payload) => {
+  return Promise.resolve(payload)
+})
+
 const posterPath = jest.fn()
 
-module.exports = { retrievePopularFilmPage,
+module.exports = {
+  retrievePopularFilmPage,
   retrievePopularTvPage,
   retrieveFilms,
   retrieveAFilm,
+  createAFilm,
   retrieveATvShow,
-  posterPath }
+  posterPath
+}

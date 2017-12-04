@@ -1,7 +1,8 @@
-import { mount } from 'vue-test-utils'
 import NewFilm from '@/app/pages/NewFilm/NewFilm.vue'
 import NewFilmPage from '../../../__page_objects__/NewFilmPageObject'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
+import { createFilmPayload } from '../../../services/repositories/tmdb-payloads'
+import { createAFilm as createAFilmSpy } from '../../../services/repositories/tmdb-repository'
 jest.mock('@/app/services/repositories/tmdb-repository')
 
 describe('New Film', () => {
@@ -104,6 +105,9 @@ describe('New Film', () => {
       })
       it('navigates to all gigs route', async () => {
         page.checkCurrentPath(store, '/popular_films')
+      })
+      it('creates film with appropriate payload', async () => {
+        expect(createAFilmSpy).toHaveBeenCalledWith(createFilmPayload(nameWithValidLength(), FUTURE_DATETIME))
       })
     })
   })

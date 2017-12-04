@@ -5,7 +5,7 @@ import {
   CREATE_FILM_ERROR, CREATE_FILM_REQUEST, CREATE_FILM_SUCCESS, createFilmError,
   createFilmRequest, createFilmSuccess
 } from '../app/pages/NewFilm/new-film-mutations'
-import { retrieveAFilmAction, retrievePopularFilmsAction } from '../app/pages/PopularFilms/films-actions'
+import { retrieveAFilmAction, retrievePopularFilmsAction } from '../app/pages/PopularFilms/popular-films-actions'
 import {
   FETCH_FILM_PAGE_ERROR,
   FETCH_FILM_PAGE_REQUEST,
@@ -19,8 +19,8 @@ import {
   fetchFilmsError,
   fetchFilmsPageSuccess,
   fetchFilmSuccess
-} from '../app/pages/PopularFilms/films-mutations'
-import { retrieveATvShowAction, retrievePopularTvShowsAction } from '../app/pages/PopularTvShows/tv-shows-actions'
+} from '../app/pages/PopularFilms/popular-films-mutations'
+import { retrieveATvShowAction, retrievePopularTvShowsAction } from '../app/pages/PopularTvShows/popular-tv-shows-actions'
 import {
   FETCH_TV_SHOW_SUCCESS,
   FETCH_TV_SHOWS_ERROR,
@@ -28,7 +28,7 @@ import {
   fetchTvShowsError,
   fetchTvShowsSuccess,
   fetchTvShowSuccess
-} from '../app/pages/PopularTvShows/tv-shows-mutations'
+} from '../app/pages/PopularTvShows/popular-tv-shows-mutations'
 import { TOOGLE_SEARCH, toogleSearch } from '../app/pages/Search/search-mutations'
 import {
   CREATE_FILM,
