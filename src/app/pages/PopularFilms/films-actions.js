@@ -1,8 +1,8 @@
 import { retrieveAFilm, retrievePopularFilmPage } from '../../services/repositories/tmdb-repository'
 import {
   FETCH_DATA_REQUEST,
-  FETCH_FILM_ERROR,
-  FETCH_FILM_SUCCESS,
+  FETCH_FILM_PAGE_ERROR,
+  FETCH_FILM_PAGE_SUCCESS,
   FETCH_FILMS_ERROR,
   FETCH_FILMS_SUCCESS
 } from './films-mutations'
@@ -13,5 +13,5 @@ export function retrievePopularFilmsAction() {
 }
 
 export function retrieveAFilmAction() {
-  return queryAction(retrieveAFilm, FETCH_DATA_REQUEST, FETCH_FILM_SUCCESS, FETCH_FILM_ERROR).run
+  return queryAction(retrieveAFilm, FETCH_DATA_REQUEST, FETCH_FILM_PAGE_SUCCESS, FETCH_FILM_PAGE_ERROR).run
 }

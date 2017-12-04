@@ -1,6 +1,6 @@
 <template>
   <div class="layout-padding">
-      <h4>Add a New Gig to TmDB!</h4>
+      <h4>Add a New Film to TmDB!</h4>
       <TextInput
         label="Insert Film Title"
         v-model="title"

@@ -8,13 +8,18 @@
   </q-infinite-scroll>
 </template>
 <script>
-  let pageNumber = 1
+  import { Loading } from 'quasar-framework'
   export default {
-    props: ['retrievePages', 'items', 'goTo'],
+    props: ['retrievePage', 'items', 'goTo', 'pageNumber'],
+    async created() {
+      if (this.pageNumber > 0) return
+      Loading.show({message: 'Loading...'})
+      await this.retrievePage({ pageNumber: 1 })
+      Loading.hide()
+    },
     methods: {
       async loadMore(index, done) {
-        pageNumber++
-        await this.retrievePages({ pageNumber })
+        await this.retrievePage({ pageNumber: this.pageNumber + 1 })
         done()
       }
     }

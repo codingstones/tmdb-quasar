@@ -7,17 +7,17 @@ import {
 } from '../app/pages/NewFilm/new-film-mutations'
 import { retrieveAFilmAction, retrievePopularFilmsAction } from '../app/pages/PopularFilms/films-actions'
 import {
-  FETCH_FILM_ERROR,
-  FETCH_FILM_REQUEST,
-  FETCH_FILM_SUCCESS,
+  FETCH_FILM_PAGE_ERROR,
+  FETCH_FILM_PAGE_REQUEST,
+  FETCH_FILM_PAGE_SUCCESS,
   FETCH_FILMS_ERROR,
   FETCH_FILMS_REQUEST,
   FETCH_FILMS_SUCCESS,
   fetchDataRequest,
-  fetchFilmError,
-  fetchFilmRequest,
+  fetchFilmPageError,
+  fetchFilmPageRequest,
   fetchFilmsError,
-  fetchFilmsSuccess,
+  fetchFilmsPageSuccess,
   fetchFilmSuccess
 } from '../app/pages/PopularFilms/films-mutations'
 import { retrieveATvShowAction, retrievePopularTvShowsAction } from '../app/pages/PopularTvShows/tv-shows-actions'
@@ -48,7 +48,9 @@ export const initialState = {
   tvShowDetail: {},
   error: false,
   loading: false,
-  searching: false
+  searching: false,
+  filmPageNumber: 0,
+  tvShowPageNumber: 0
 }
 
 export const actions = {
@@ -61,13 +63,13 @@ export const actions = {
 
 export const mutations = {
   [FETCH_FILMS_REQUEST]: fetchDataRequest,
-  [FETCH_FILMS_SUCCESS]: fetchFilmsSuccess,
+  [FETCH_FILMS_SUCCESS]: fetchFilmsPageSuccess,
   [FETCH_TV_SHOWS_SUCCESS]: fetchTvShowsSuccess,
   [FETCH_FILMS_ERROR]: fetchFilmsError,
   [FETCH_TV_SHOWS_ERROR]: fetchTvShowsError,
-  [FETCH_FILM_REQUEST]: fetchFilmRequest,
-  [FETCH_FILM_SUCCESS]: fetchFilmSuccess,
-  [FETCH_FILM_ERROR]: fetchFilmError,
+  [FETCH_FILM_PAGE_REQUEST]: fetchFilmPageRequest,
+  [FETCH_FILM_PAGE_SUCCESS]: fetchFilmSuccess,
+  [FETCH_FILM_PAGE_ERROR]: fetchFilmPageError,
   [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess,
   [CREATE_FILM_REQUEST]: createFilmRequest,
   [CREATE_FILM_SUCCESS]: createFilmSuccess,

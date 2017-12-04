@@ -1,19 +1,20 @@
 export const FETCH_FILMS_REQUEST = 'fetchDataRequest'
-export const FETCH_FILMS_SUCCESS = 'fetchFilmsSuccess'
+export const FETCH_FILMS_SUCCESS = 'fetchFilmsPageSuccess'
 export const FETCH_FILMS_ERROR = 'fetchFilmsError'
 export const FETCH_DATA_REQUEST = 'fetchDataRequest'
-export const FETCH_FILM_REQUEST = 'fetchFilmRequest'
-export const FETCH_FILM_SUCCESS = 'fetchFilmSuccess'
-export const FETCH_FILM_ERROR = 'fetchFilmError'
+export const FETCH_FILM_PAGE_REQUEST = 'fetchFilmPageRequest'
+export const FETCH_FILM_PAGE_SUCCESS = 'fetchFilmPageSuccess'
+export const FETCH_FILM_PAGE_ERROR = 'fetchFilmPageError'
 
 export function fetchDataRequest(state) {
   state.loading = true
   state.error = ''
 }
 
-export function fetchFilmsSuccess(state, page) {
+export function fetchFilmsPageSuccess(state, page) {
   state.loading = false
   state.films = state.films.concat(page)
+  state.filmPageNumber++
   state.error = ''
 }
 
@@ -22,7 +23,7 @@ export function fetchFilmsError(state, error) {
   state.error = error
 }
 
-export function fetchFilmRequest(state) {
+export function fetchFilmPageRequest(state) {
   state.loading = true
   state.error = ''
   state.filmDetail = {}
@@ -34,7 +35,7 @@ export function fetchFilmSuccess(state, film) {
   state.error = ''
 }
 
-export function fetchFilmError(state, error) {
+export function fetchFilmPageError(state, error) {
   state.loading = false
   state.error = error
 }

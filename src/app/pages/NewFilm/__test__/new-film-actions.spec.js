@@ -32,7 +32,7 @@ describe('New Film actions', () => {
       const createFilm = rejectedPromise(backendError)
       action = createFilmAction(createFilm)
 
-      await action.run({ commit: commitSpy }, 'any gig')
+      await action.run({ commit: commitSpy }, 'any film')
 
       expect(commitSpy).toHaveBeenCalledWith(CREATE_FILM_REQUEST)
       expect(commitSpy).toHaveBeenCalledWith(CREATE_FILM_ERROR, backendError)

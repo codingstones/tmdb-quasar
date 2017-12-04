@@ -6,6 +6,7 @@ export function fetchTvShowsSuccess(state, page) {
   state.loading = false
   state.tvShows = state.tvShows.concat(page)
   state.error = ''
+  state.tvShowPageNumber++
 }
 
 export function fetchTvShowsError(state, error) {

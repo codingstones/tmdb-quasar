@@ -1,24 +1,21 @@
 <template>
-  <Items :retrievePages="retrieve_popular_films" :items="films" :goTo="tmdbRouter.navigateToFilm"/>
+  <Items :retrievePage="retrieve_popular_films"
+         :items="films"
+         :goTo="tmdbRouter.navigateToFilm"
+         :pageNumber="filmPageNumber" />
 </template>
 
 <script>
-  import { Loading } from 'quasar-framework'
   import { mapActions, mapState } from 'vuex'
   export default {
     computed: {
-      ...mapState(['films'])
+      ...mapState(['films', 'filmPageNumber'])
     },
     methods: {
       ...mapActions(['retrieve_popular_films']),
       goTo(film) {
         this.tmdbRouter.navigateToFilm(film.id)
       }
-    },
-    async created() {
-      Loading.show({message: 'Loading films...'})
-      await this.retrieve_popular_films({ pageNumber: 1 })
-      Loading.hide()
     }
   }
 </script>

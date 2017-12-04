@@ -1,16 +1,7 @@
 <template>
   <q-scroll-area slot="left" style="width: 100%; height: 100%" inset-separator>
     <q-list-header>
-      TmDb
-    </q-list-header>
-    <q-side-link item to="/popular_films">
-      <q-item-side icon="list" />
-      <q-item-main label="All Films"/>
-      <q-item-side icon="keyboard_arrow_right" />
-    </q-side-link>
-    <q-item-separator></q-item-separator>
-    <q-list-header>
-      Admin
+      TmDb Admin
     </q-list-header>
     <q-side-link item to="/newFilm">
       <q-item-side icon="note_add" />
@@ -18,6 +9,7 @@
       <q-item-side icon="keyboard_arrow_right" />
     </q-side-link>
     <br>
+    <q-item-separator></q-item-separator>
     <q-list-header>
       <img src="~assets/tmdb.png" class="totoro"/>
       <img src="~assets/stones.svg"/>

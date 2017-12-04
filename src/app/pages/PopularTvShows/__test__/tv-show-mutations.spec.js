@@ -8,7 +8,7 @@ describe('TV shows Mutations', () => {
   let OLD_FILMS
   beforeEach(() => {
     OLD_FILMS = ['an old film', 'another old film']
-    state = { tvShows: OLD_FILMS }
+    state = { tvShows: OLD_FILMS, tvShowPageNumber: 0 }
   })
 
   describe('When fetching tv shows', () => {
@@ -16,7 +16,7 @@ describe('TV shows Mutations', () => {
     it('starts request', () => {
       fetchDataRequest(state)
 
-      expect(state).toEqual({ loading: true, tvShows: OLD_FILMS, error: '' })
+      expect(state).toEqual({ loading: true, tvShows: OLD_FILMS, tvShowPageNumber: 0, error: '' })
     })
 
     it('finishes with success', () => {
@@ -27,12 +27,13 @@ describe('TV shows Mutations', () => {
       expect(state.loading).toBeFalsy()
       expect(state.error).toBe('')
       expect(state.tvShows.length).toBe(4)
+      expect(state.tvShowPageNumber).toBe(1)
     })
 
     it('finishes with error', () => {
       fetchTvShowsError(state, 'Any Error')
 
-      expect(state).toEqual({ loading: false, tvShows: OLD_FILMS, error: 'Any Error' })
+      expect(state).toEqual({ loading: false, tvShows: OLD_FILMS, tvShowPageNumber: 0, error: 'Any Error' })
     })
   })
 

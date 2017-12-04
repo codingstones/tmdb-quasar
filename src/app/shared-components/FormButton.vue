@@ -4,7 +4,7 @@
          @click="onClick()">
     <span v-if="isLoading">
       <q-spinner-mat size="20"/>
-      Saving gig...
+      Saving film...
     </span>
     <slot v-else></slot>
   </q-btn>
