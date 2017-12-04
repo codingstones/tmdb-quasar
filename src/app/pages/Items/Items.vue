@@ -4,7 +4,7 @@
     <div slot="message" class="row justify-center" style="margin-bottom: 50px;">
       <q-spinner-mat :size="40" />
     </div>
-    <BackToTopButton/>
+    <BackToTopButton class="overflow"/>
   </q-infinite-scroll>
 </template>
 <script>
@@ -38,4 +38,7 @@
   .q-card
     display inline
     width 300px
+
+  .overflow
+    visible
 </style>
