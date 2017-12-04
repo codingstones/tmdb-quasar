@@ -4,7 +4,7 @@
       <img v-if="props.item.backdrop_path.includes('null')" src="~assets/not-found.png"/>
       <progressive-img v-else :src="props.item.backdrop_path"/>
     </q-card-media>
-    <q-card-main>
+    <q-card-main class="ellipsis">
       {{ props.item.title }}
       {{ props.item.name }}
       <!--{{ props.item }}-->
