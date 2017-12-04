@@ -38,6 +38,7 @@ import FormButton from '@/app/shared-components/FormButton.vue'
 import BackToTopButton from '@/app/shared-components/BackToTopButton.vue'
 import SideBar from '@/app/shared-components/SideBar.vue'
 import Toolbar from '@/app/shared-components/Toolbar.vue'
+import SearchToolbar from '@/app/shared-components/SearchToolbar.vue'
 import Tabs from '@/app/shared-components/Tabs.vue'
 import ItemCard from '@/app/pages/Items/ItemCard.vue'
 import ItemDetail from '@/app/pages/ItemDetail/ItemDetail.vue'
@@ -85,6 +86,7 @@ export function registerGlobalComponents() {
   Vue.component('FormButton', FormButton)
   Vue.component('BackToTopButton', BackToTopButton)
   Vue.component('Toolbar', Toolbar)
+  Vue.component('SearchToolbar', SearchToolbar)
   Vue.component('Tabs', Tabs)
   Vue.component('SideBar', SideBar)
 }

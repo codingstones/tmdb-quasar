@@ -29,7 +29,6 @@ import {
   fetchTvShowsSuccess,
   fetchTvShowSuccess
 } from '../app/pages/PopularTvShows/popular-tv-shows-mutations'
-import { TOOGLE_SEARCH, toogleSearch } from '../app/pages/Search/search-mutations'
 import {
   CREATE_FILM,
   RETRIEVE_FILM,
@@ -37,7 +36,7 @@ import {
   RETRIEVE_POPULAR_TV_SHOWS,
   RETRIEVE_TV_SHOW
 } from '../app/services/repositories/backend-commands'
-import { numberOfFilms } from './getters'
+import { numberOfFilms, searching } from './getters'
 
 Vue.use(Vuex)
 
@@ -73,12 +72,12 @@ export const mutations = {
   [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess,
   [CREATE_FILM_REQUEST]: createFilmRequest,
   [CREATE_FILM_SUCCESS]: createFilmSuccess,
-  [CREATE_FILM_ERROR]: createFilmError,
-  [TOOGLE_SEARCH]: toogleSearch
+  [CREATE_FILM_ERROR]: createFilmError
 }
 
 export const getters = {
   numberOfFilms,
+  searching,
   paramId: state => state.route.params.id,
   currentRoute: state => state.route.path
 }

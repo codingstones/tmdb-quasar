@@ -1,7 +1,9 @@
 <template>
   <div id="q-app" class="row justify-center">
     <q-layout ref="layout">
-      <Toolbar slot="header" @drawerClick="clickDrawer()"></Toolbar>
+      <SearchToolbar slot="header" @drawerClick="clickDrawer()"
+        v-if="searching"/>
+      <Toolbar v-else slot="header" @drawerClick="clickDrawer()"/>
       <Tabs slot="header"></Tabs>
       <SideBar slot="left"></SideBar>
       <q-transition
@@ -15,9 +17,13 @@
 
 <script>
 import { registerGlobalComponents } from './app/GlobalComponentsLoader'
+import { mapGetters } from 'vuex'
 
 registerGlobalComponents()
 export default {
+  computed: {
+    ...mapGetters(['searching'])
+  },
   methods: {
     clickDrawer() {
       this.$refs.layout.toggleLeft()
