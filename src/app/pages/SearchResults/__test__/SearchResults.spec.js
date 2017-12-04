@@ -1,22 +1,22 @@
-import Search from '@/app/pages/Search/Search.vue'
+import Search from '@/app/pages/SearchResults/SearchResults.vue'
 import { cloneProductionStore, Wrap } from '../../../../../test/helpers'
 import FilmsPage from '../../../__page_objects__/ItemsPageObject'
 import { fakeFilms } from '../../../services/repositories/__mocks__/fake-films'
 jest.mock('@/app/services/repositories/tmdb-repository')
 
-describe('Popular Items', () => {
+describe('SearchResults Results', () => {
   let page, wrapper, store
   beforeEach(async () => {
     store = cloneProductionStore()
+    store.state.searchResults = fakeFilms
     wrapper = Wrap(Search)
       .withStore(store)
       .withProps({ isLoading: false, onClick: jest.fn })
       .mount()
     page = new FilmsPage(wrapper)
-    await page.resolveAll()
   })
 
   it('renders search', async() => {
-    // fakeTvShows.map(film => page.contains(film.title))
+    fakeFilms.map(film => page.contains(film.title))
   })
 })

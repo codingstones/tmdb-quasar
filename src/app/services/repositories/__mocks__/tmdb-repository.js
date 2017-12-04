@@ -1,6 +1,11 @@
 import { fakeFilms, fakeFilm } from './fake-films'
 import { fakeTvShow, fakeTvShows } from './fake-tv-shows'
 
+const searchTmdbFilms = jest.fn(() => {
+  console.log('AQUI ESTAMOS')
+  return Promise.resolve(fakeFilms)
+})
+
 const retrieveFilms = jest.fn(() => {
   return Promise.resolve(fakeFilms)
 })
@@ -28,6 +33,7 @@ const createAFilm = jest.fn((payload) => {
 const posterPath = jest.fn()
 
 module.exports = {
+  searchTmdbFilms,
   retrievePopularFilmPage,
   retrievePopularTvPage,
   retrieveFilms,

@@ -6,14 +6,9 @@ export function posterPath(relativePath) {
   return posterBase + relativePath
 }
 
-export async function searchTmdbFilm(ghibliFilm) {
-  const backdropBase = 'https://image.tmdb.org/t/p/w780/'
-  const posterBase = 'https://image.tmdb.org/t/p/w300/'
-  const response = await tmdbCommand('search/movie', { query: ghibliFilm.title, year: ghibliFilm.release_date }).run()
-  const movie = response.results[0]
-  movie.backdrop_path = backdropBase + movie.backdrop_path
-  movie.poster_path = posterBase + movie.poster_path
-  return movie
+export async function searchTmdbFilms(input) {
+  const response = await tmdbCommand('search/movie', { query: input }).run()
+  return response.results.map(film => createFilm(film))
 }
 
 export async function retrievePopularFilmPage(params) {

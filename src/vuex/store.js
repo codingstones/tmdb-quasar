@@ -29,12 +29,14 @@ import {
   fetchTvShowsSuccess,
   fetchTvShowSuccess
 } from '../app/pages/PopularTvShows/popular-tv-shows-mutations'
+import { searchFilmsAction } from '../app/pages/SearchResults/search-actions'
+import { SEARCH_FILMS_SUCCESS, searchFilmsSuccess } from '../app/pages/SearchResults/search-mutations'
 import {
   CREATE_FILM,
   RETRIEVE_FILM,
   RETRIEVE_POPULAR_FILMS,
   RETRIEVE_POPULAR_TV_SHOWS,
-  RETRIEVE_TV_SHOW
+  RETRIEVE_TV_SHOW, SEARCH_FILMS
 } from '../app/services/repositories/backend-commands'
 import { numberOfFilms, searching } from './getters'
 
@@ -43,6 +45,7 @@ Vue.use(Vuex)
 export const initialState = {
   films: [],
   tvShows: [],
+  searchResults: [],
   filmDetail: {},
   tvShowDetail: {},
   error: false,
@@ -57,7 +60,8 @@ export const actions = {
   [RETRIEVE_POPULAR_TV_SHOWS]: retrievePopularTvShowsAction(),
   [RETRIEVE_FILM]: retrieveAFilmAction(),
   [RETRIEVE_TV_SHOW]: retrieveATvShowAction(),
-  [CREATE_FILM]: buildCreateFilmAction()
+  [CREATE_FILM]: buildCreateFilmAction(),
+  [SEARCH_FILMS]: searchFilmsAction()
 }
 
 export const mutations = {
@@ -72,7 +76,8 @@ export const mutations = {
   [FETCH_TV_SHOW_SUCCESS]: fetchTvShowSuccess,
   [CREATE_FILM_REQUEST]: createFilmRequest,
   [CREATE_FILM_SUCCESS]: createFilmSuccess,
-  [CREATE_FILM_ERROR]: createFilmError
+  [CREATE_FILM_ERROR]: createFilmError,
+  [SEARCH_FILMS_SUCCESS]: searchFilmsSuccess
 }
 
 export const getters = {

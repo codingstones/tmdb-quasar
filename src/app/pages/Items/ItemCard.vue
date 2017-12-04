@@ -16,7 +16,7 @@
   </q-card>
 </template>
 
-<style lang="stylus" type="text/stylus">
+<style lang="stylus" type="text/stylus" scoped>
   .menu-card:hover {
     background: alpha(orange, 30%);
     opacity: 0.5;

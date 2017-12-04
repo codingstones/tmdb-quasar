@@ -1,17 +1,18 @@
 
 import {
   retrieveAFilm, retrieveATvShow, retrievePopularFilmPage, retrievePopularTvPage,
-  searchTmdbFilm
+  searchTmdbFilms
 } from '../tmdb-repository'
 
 xdescribe('Tmdb client', () => {
 
   it('finds searched film', async () => {
-    const result = await searchTmdbFilm({ title: 'Princess Mononoke' })
-    expect(result.id).toBe(128)
-    expect(result.backdrop_path).toContain('image.tmdb.org')
-    expect(result.backdrop_path).toContain('.jpg')
-    expect(result.poster_path).toContain('.jpg')
+    const results = await searchTmdbFilms({ title: 'Princess Mononoke' })
+    const film = results[0]
+    expect(film.id).toBe(128)
+    expect(film.backdrop_path).toContain('image.tmdb.org')
+    expect(film.backdrop_path).toContain('.jpg')
+    expect(film.poster_path).toContain('.jpg')
   })
 
   it('retrieves a page of films order by popularity', async () => {

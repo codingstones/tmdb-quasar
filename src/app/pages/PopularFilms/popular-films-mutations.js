@@ -20,7 +20,7 @@ export function fetchFilmsPageSuccess(state, page) {
 
 export function fetchFilmsError(state, error) {
   state.loading = false
-  state.error = error
+  state.error = error.toString()
 }
 
 export function fetchFilmPageRequest(state) {
