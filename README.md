@@ -1,6 +1,6 @@
 # TMdb Catalog
 
-<img src="/art/condemor.gif?raw=true" width="200px">
+<img src="/art/condemor.gif?raw=true" width="400px">
 
 ## Getting Started!
 
