@@ -29,17 +29,6 @@
 </script>
 
 <style lang="stylus" scoped>
-  @import '~variables'
-
-  .q-card-title
-    color black
-    font-weight bold
-    font-size 150%
-
-  .q-card
-    display inline
-    width 300px
-
-  .overflow
-    visible
+  .q-btn-standard
+    z-index: 2
 </style>

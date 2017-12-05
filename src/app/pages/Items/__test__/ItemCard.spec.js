@@ -8,7 +8,7 @@ describe('ItemCard', () => {
     const FILM = {id: 'an id',
       title: 'a title',
       vote_average: 'avg',
-      backdrop_path: 'an image url'
+      poster_path: 'an image url'
     }
 
     const wrapper = mount(ItemCard, { propsData: {item: FILM} })

@@ -13,6 +13,7 @@ describe('Items', () => {
       .withStore(store)
       .withProps({ isLoading: false,
         onClick: jest.fn(),
+        retrievePage: jest.fn(),
         items: fakeFilms,
         goTo: navigateToSpy })
       .mount()
