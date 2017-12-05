@@ -1,6 +1,6 @@
 # TMdb Catalog
 
-![Tmdb][/condemor.gif]
+![](http://i.imgur.com/bAP4bdM.gif)
 
 ## Getting Started!
 
