@@ -1,5 +1,7 @@
 # TMdb Catalog
 
+![Tmdb][condemor.gif]
+
 ## Getting Started!
 
 You will need to register in [themoviedb](https://www.themoviedb.org/documentation/api) to create your API_KEY 
