@@ -1,6 +1,6 @@
 # TMdb Catalog
 
-![Condemor](http://i.imgur.com/aPBGubw.gif)
+<img src="/condemor.gif?raw=true">
 
 ## Getting Started!
 
