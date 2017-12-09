@@ -2,7 +2,7 @@
   <Items :retrievePage="retrieve_popular_films"
          :items="films"
          :goTo="tmdbRouter.navigateToFilm"
-         :pageNumber="filmPageNumber" />
+         :pageNumber="filmPageNumber"></Items>
 </template>
 
 <script>
