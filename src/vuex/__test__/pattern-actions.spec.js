@@ -32,7 +32,8 @@ describe('REQUEST/SUCCESS/ERROR actions', () => {
 
       try {
         await action.run({ commit: commitSpy })
-      } catch (error) {
+      }
+      catch (error) {
         expect(commitSpy).toHaveBeenCalledWith(FETCH_DATA_REQUEST)
         expect(commitSpy).toHaveBeenCalledWith(FETCH_DATA_ERROR, backendError)
         expect(error).toBe(backendError)
