@@ -5,15 +5,7 @@
 ## Getting Started!
 
 You will need to register in [themoviedb](https://www.themoviedb.org/documentation/api) to create your API_KEY 
-Once you have an API_KEY you need to edit /src/app/services/repositories/tmdb-repository.js and paste it oin:
-
-```
-function tmdbCommand(sufix, payload) {
-  ...
-    api_key: process.env.API_KEY // Replace this with your own API_KEY
-  ...
-}
-```
+Once you have an API_KEY you need to rename /config/secrets2.js to /config/secret.js and paste your API_KEY.
 
 ``` bash
 # install dependencies
