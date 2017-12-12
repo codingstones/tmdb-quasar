@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js,.vue src",
     "unit": "jest",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "deploy": "node build/publish.js"
   },
   "jest": {
     "moduleFileExtensions": [
