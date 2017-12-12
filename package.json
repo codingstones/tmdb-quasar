@@ -9,7 +9,9 @@
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
     "lint": "eslint --ext .js,.vue src",
-    "unit": "jest"
+    "unit": "jest",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -67,6 +69,7 @@
     "colors": "^1.1.2",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.28.0",
+    "cypress": "^1.1.4",
     "es6-promise": "^4.1.1",
     "eslint": "^4.13.0",
     "eslint-config-standard": "^10.2.1",
