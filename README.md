@@ -4,7 +4,7 @@
 
 ## Getting Started!
 
-You will need to register in [themoviedb](https://www.themoviedb.org/documentation/api) to create your API_KEY 
+You will need to register in [themoviedb](https://developers.themoviedb.org/3/getting-started/authentication) to create your API_KEY (for version v3).
 Once you have an API_KEY you need to rename /config/secrets2.js to /config/secret.js and paste your API_KEY.
 
 ``` bash
