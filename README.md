@@ -33,6 +33,7 @@ $ npm run dev mat
 ### 'mat' was the material theme, try iOS with
 ``` bash
 $ yarn dev ios
+```
 or
 ``` bash
 $ npm run dev ios
