@@ -6,6 +6,7 @@ export function backendClient() {
 
   async function run(command) {
     try {
+      console.log('command.url', command.url)
       const response = await fetchJsonp(command.url + '?' + qs.stringify(command.payload))
       return response.json()
     }
