@@ -16,7 +16,7 @@ export async function retrievePopularFilmPage(params) {
     { sort_by: 'popularity.desc',
       page: params.pageNumber
     }
-  const response = await tmdbCommand('discover/movie/', payload).run()
+  const response = await tmdbCommand('discover/movie', payload).run()
   return response.results.map(film => createFilm(film))
 }
 
@@ -25,7 +25,7 @@ export async function retrievePopularTvPage(params) {
     { sort_by: 'popularity.desc',
       page: params.pageNumber
     }
-  const response = await tmdbCommand('discover/tv/', payload).run()
+  const response = await tmdbCommand('discover/tv', payload).run()
   return response.results.map(film => createFilm(film))
 }
 
