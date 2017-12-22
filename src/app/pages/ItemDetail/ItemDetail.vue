@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-center">
-    <q-card inline>
+    <q-card inline flat>
       <q-card-media overlay-position="top">
         <progressive-img :src="posterPath(item.backdrop_path)"/>
       </q-card-media>
@@ -56,9 +56,16 @@
     font-size: 1.1rem;
   }
 
+  .q-card-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .q-card {
-    max-width: 80%;
     min-width : 320px
+    margin-top: -8px
+    margin-left: -8px
+    margin-right: -8px
   }
 
   .q-card-main {

@@ -6,9 +6,8 @@
     <q-toolbar-title>
       The Movie Database
     </q-toolbar-title>
-    <q-btn color='secondary' @click="openSearch()">
-      <q-icon name="search"/>
-      SEARCH
+    <q-btn flat>
+      <q-icon name="search" @click="openSearch()" />
     </q-btn>
   </q-toolbar>
 </template>
