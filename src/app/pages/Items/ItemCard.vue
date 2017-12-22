@@ -35,5 +35,12 @@
 
   .q-card
     display inline
-    width 9rem
+    width calc(100% / 2 - 2 * 8px)
+    @media (min-width: $tablet)
+      width calc(100% / 3 - 3 * 8px)
+    @media (min-width: $desktop)
+      width calc(100% / 4 - 4 * 8px)
+    @media (min-width: $wide)
+      width calc(100% / 6 - 6 * 8px)
+
 </style>

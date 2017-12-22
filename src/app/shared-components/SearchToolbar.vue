@@ -4,10 +4,12 @@
       <q-icon name="keyboard_backspace"/>
     </q-btn>
     <q-search :debounce="600"
-              placeholder=""
+              placeholder="Search by title"
               @change="search($event)"
               value=""
               autofocus
+              inverted
+              class="no-shadow"
     />
   </q-toolbar>
 </template>
